@@ -1,0 +1,78 @@
+version: '3'
+
+services:
+  data-warehouse:
+    image: postgres:13
+    env_file:
+        - .env
+    volumes:
+        - "./postgres/data:/var/lib/postgresql/data:rw"
+    healthcheck:
+        test: ["CMD-SHELL", "pg_isready -U postgres"]
+        interval: 5s
+        timeout: 5s
+        retries: 5
+    ports:
+        - "5432:5432"
+    container_name: data-warehouse
+    networks:
+      - spark
+
+  pgadmin:
+    image: dpage/pgadmin4
+    env_file:
+        - .env
+    volumes:
+        - "./data_pgadmin:/var/lib/pgadmin"
+    ports:
+        - "8082:80"
+    networks:
+      - spark
+
+  spark-master:
+    build: 
+      context: .
+      dockerfile: ./spark/Dockerfile    
+    environment:
+      - SPARK_MODE=master
+      - SPARK_RPC_AUTHENTICATION_ENABLED=no
+      - SPARK_RPC_ENCRYPTION_ENABLED=no
+      - SPARK_LOCAL_STORAGE_ENCRYPTION_ENABLED=no
+      - SPARK_SSL_ENABLED=no
+    ports:
+      - "8080:8080"
+      - "7077:7077"
+      - "8100:4040"    # for spark UI
+    volumes:
+      - "./spark/jobs:/opt/bitnami/spark/jobs:rw"
+      - "./dataset:/opt/bitnami/spark/dataset:rw"
+    networks:
+      - spark
+    depends_on:
+      data-warehouse:
+        condition: service_healthy
+    container_name: spark-master
+    
+  spark-worker:
+    image: docker.io/bitnami/spark:3.3
+    environment:
+      - SPARK_MODE=worker
+      - SPARK_MASTER_URL=spark://spark-master:7077
+      - SPARK_WORKER_MEMORY=1G
+      - SPARK_WORKER_CORES=1
+      - SPARK_RPC_AUTHENTICATION_ENABLED=no
+      - SPARK_RPC_ENCRYPTION_ENABLED=no
+      - SPARK_LOCAL_STORAGE_ENCRYPTION_ENABLED=no
+      - SPARK_SSL_ENABLED=no
+    ports:
+      - "8081:8081"   # for worker UI
+    volumes:
+      - "./dataset:/opt/bitnami/spark/dataset:rw"
+    networks:
+      - spark
+    depends_on:
+      - spark-master
+
+networks:
+  spark:
+    driver: bridge

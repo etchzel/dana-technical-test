@@ -1,0 +1,12 @@
+*.zip
+**_MACOSX
+**logs**
+postgres/data/*
+data_pgadmin/*
+*.ipynb
+.user.yml
+*.pgsql
+!.gitkeep
+**dataset
+**yelp_dataset_csv
+*.pdf
