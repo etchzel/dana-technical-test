@@ -6,10 +6,10 @@ data_pgadmin/*
 *.ipynb
 .user.yml
 *.pgsql
-!.gitkeep
 dataset/weather/**
 dataset/yelp/csv/**
 dataset/yelp/json/**
+!.gitkeep
 *.tar
 **yelp_dataset_csv
 *.pdf
