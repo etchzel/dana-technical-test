@@ -16,4 +16,4 @@ sources:
       - name: yelp_user
       - name: yelp_user_elite_years
       - name: yelp_user_friends
-      - name: weather_data_us
+      - name: weather_data
