@@ -1,0 +1,13 @@
+version: 2
+
+sources:
+  - name: staging
+    database: dana
+    schema: staging
+    tables:
+      - name: yelp_business
+      - name: yelp_checkin
+      - name: yelp_review
+      - name: yelp_tip
+      - name: yelp_user
+      - name: weather_data_us
