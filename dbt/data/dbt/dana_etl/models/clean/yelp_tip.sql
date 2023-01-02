@@ -7,4 +7,3 @@ select
     compliment_count,
     text
 from {{ source('staging', 'yelp_tip') }}
-limit 100

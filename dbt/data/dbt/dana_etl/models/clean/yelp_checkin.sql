@@ -14,4 +14,3 @@ select
     checkin_count
 from {{ source('staging', 'yelp_checkin') }} checkin
 join checkin_counts on checkin.checkin_id = checkin_counts.checkin_id
-limit 100

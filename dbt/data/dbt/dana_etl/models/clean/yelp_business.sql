@@ -11,7 +11,5 @@ select
 	longitude::text,
 	stars,
 	review_count,
-	is_open,
-	categories
+	is_open
 from {{ source('staging', 'yelp_business') }}
-limit 100

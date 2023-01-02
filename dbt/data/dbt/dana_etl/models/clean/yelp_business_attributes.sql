@@ -9,4 +9,3 @@ select
 		ELSE value
 	END AS attribute_value
 from {{ source('staging', 'yelp_business_attributes') }}
-limit 100

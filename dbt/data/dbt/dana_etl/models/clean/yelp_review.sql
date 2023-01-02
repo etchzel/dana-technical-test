@@ -11,4 +11,3 @@ select
     funny,
     cool
 from {{ source('staging', 'yelp_review') }}
-limit 100

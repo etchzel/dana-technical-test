@@ -5,4 +5,3 @@ select
     name as day,
     value as hours
 from {{ source('staging', 'yelp_business_hours') }}
-limit 100

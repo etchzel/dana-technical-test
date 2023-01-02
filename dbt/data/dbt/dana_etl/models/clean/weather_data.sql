@@ -22,4 +22,3 @@ select
 	"WT10" as tornado
 from {{ source('staging', 'weather_data') }}
 order by date_observed
-limit 100

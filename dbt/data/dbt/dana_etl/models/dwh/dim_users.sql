@@ -5,9 +5,5 @@ select
     yelping_since::timestamp as yelping_since,
     name,
     average_stars,
-    review_count,
-    useful,
-    funny,
-    cool,
-    fans
-from {{ source('staging', 'yelp_user') }}
+    review_count
+from {{ ref('yelp_user') }}

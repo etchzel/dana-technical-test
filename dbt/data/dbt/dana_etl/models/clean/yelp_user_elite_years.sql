@@ -8,4 +8,3 @@ select distinct
 		else value::int
 	end as year
 from {{ source('staging', 'yelp_user_elite_years')}}
-limit 100
