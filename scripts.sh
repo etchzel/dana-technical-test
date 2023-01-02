@@ -1,4 +1,4 @@
-docker compose exec -it --workdir="//opt/bitnami/spark" spark-master python jobs/load_staging.py \
+docker compose exec -d --workdir="//opt/bitnami/spark" spark-master python jobs/load_staging.py \
     --user=root \
     --password=root \
     --host=data-warehouse \
