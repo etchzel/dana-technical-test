@@ -7,7 +7,10 @@ data_pgadmin/*
 .user.yml
 *.pgsql
 !.gitkeep
-**dataset
+dataset/weather/**
+dataset/yelp/csv/**
+dataset/yelp/json/**
+*.tar
 **yelp_dataset_csv
 *.pdf
 testing.py

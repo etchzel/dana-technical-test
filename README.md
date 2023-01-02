@@ -68,6 +68,10 @@ The data pipeline is build according to the diagram below:
 
 Now that the services are ready and running in the background, next run `scripts.sh` on the terminal. If using windows try to use MINGW64/Git Bash, otherwise simply check the commands inside the script and run it on the cmd step by step.
 
+**NOTE**: Make sure to put the dataset in the respective folder, following the structure below:
+
+![dataset-structure](./images/folders.png)
+
 ## PGAdmin setup
 
 PGAdmin can be used to check the data, but there's a need to register the server first for first time login.
