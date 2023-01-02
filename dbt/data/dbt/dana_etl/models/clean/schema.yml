@@ -6,8 +6,14 @@ sources:
     schema: staging
     tables:
       - name: yelp_business
+      - name: yelp_business_attributes
+      - name: yelp_business_category
+      - name: yelp_business_hours
       - name: yelp_checkin
+      - name: yelp_checkin_details
       - name: yelp_review
       - name: yelp_tip
       - name: yelp_user
+      - name: yelp_user_elite_years
+      - name: yelp_user_friends
       - name: weather_data_us

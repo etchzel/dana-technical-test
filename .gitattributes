@@ -3,4 +3,3 @@
 *.csv text eol=lf
 *.md text eol=lf
 dbt_project.yml text eol=lf
-*.gitignore text eol=lf
