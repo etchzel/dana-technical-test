@@ -101,7 +101,7 @@ DB=dana
 
     - I created the docs using Markdown instead, later converted to pdf and submitted through email. For better exploration, please use the github link below instead:
 
-    [My Github](https://github.com/etchzel/dana-technical-test).
+    [My Github: https://github.com/etchzel/dana-technical-test](https://github.com/etchzel/dana-technical-test).
 
 <br>
 
